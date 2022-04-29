@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: -webkit-gradient(linear, left top, right top, from(blue), to(green));
+  background: linear-gradient(to right, blue, green);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6rem)[4];
+      grid-template-columns: repeat(4, 6rem);
+  -ms-grid-rows: minmax(7rem, auto) (6rem)[5];
+      grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  margin-top: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator-grid button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid #e1e1e1;
+  outline: none;
+  background-color: rgba(225, 225, 225, 0.75);
+}
+
+.calculator-grid button:hover, .calculator-grid button:focus {
+  background-color: rgba(225, 225, 225, 0.9);
+}
+
+.calculator-grid .span-two {
+  grid-column: span 2;
+}
+
+.calculator-grid .output {
+  grid-column: 1/-1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: .75rem;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator-grid .output .previous-operand {
+  color: rgba(225, 225, 225, 0.75);
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator-grid .output .current-operand {
+  color: #e1e1e1;
+  font-size: 2.5rem;
 }
+/*# sourceMappingURL=App.css.map */
