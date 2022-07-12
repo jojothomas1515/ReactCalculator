@@ -34,6 +34,7 @@ function reducer(state, {type, payload}) {
                 ...state,
                 currentOperand: `${state.currentOperand || ""}${payload.digit}`,
             };
+            break;
 
         case ACTION.CHOOSE_OPERATION:
             if (state.currentOperand == null && state.previousOperand == null) {
@@ -61,6 +62,7 @@ function reducer(state, {type, payload}) {
                 }
 
             }
+            break;
 
         case ACTION.EVAL:
             return {
@@ -70,6 +72,7 @@ function reducer(state, {type, payload}) {
                 operation: null,
                 overwrite: true,
             }
+            break;
 
         case ACTION.CLEAR:
             return {};
@@ -91,6 +94,7 @@ function reducer(state, {type, payload}) {
                 ...state,
                 currentOperand: state.currentOperand.slice(0, -1)
             }
+            break;
 
 
     }
