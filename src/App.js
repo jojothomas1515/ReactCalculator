@@ -96,6 +96,9 @@ function reducer(state, {type, payload}) {
             }
             break;
 
+        default:
+            return;
+
 
     }
 }
@@ -121,6 +124,8 @@ const evalu = ({currentOperand, previousOperand, operation}) => {
         case "÷":
             computation = previous / current;
             break
+        default:
+            return ;
     }
     return computation.toString()
 };
