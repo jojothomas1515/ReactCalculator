@@ -34,7 +34,7 @@ function reducer(state, {type, payload}) {
                 ...state,
                 currentOperand: `${state.currentOperand || ""}${payload.digit}`,
             };
-            break;
+
 
         case ACTION.CHOOSE_OPERATION:
             if (state.currentOperand == null && state.previousOperand == null) {
@@ -54,12 +54,12 @@ function reducer(state, {type, payload}) {
                     ...state,
                     operation: payload.operation,
                 }
-                return {
-                    ...state,
-                    previousOperand: evalu(state),
-                    operation: payload.operation,
-                    currentOperand: null,
-                }
+                // return {
+                //     ...state,
+                //     previousOperand: evalu(state),
+                //     operation: payload.operation,
+                //     currentOperand: null,
+                // }
 
             }
             break;
@@ -72,7 +72,6 @@ function reducer(state, {type, payload}) {
                 operation: null,
                 overwrite: true,
             }
-            break;
 
         case ACTION.CLEAR:
             return {};
@@ -94,7 +93,6 @@ function reducer(state, {type, payload}) {
                 ...state,
                 currentOperand: state.currentOperand.slice(0, -1)
             }
-            break;
 
         default:
             return;
@@ -125,20 +123,20 @@ const evalu = ({currentOperand, previousOperand, operation}) => {
             computation = previous / current;
             break
         default:
-            return ;
+            return;
     }
     return computation.toString()
 };
 
-const INTERGER_FORMATTER = new Intl.NumberFormat('en-us', {
+const numberFormat = new Intl.NumberFormat('en-us', {
     maximumFractionDigits: 0,
 });
 
 function formatOperand(operand) {
     if (operand == null) return
-    const [interger, decimal] = operand.split(".")
-    if (decimal == null) return INTERGER_FORMATTER.format(interger)
-    return `${INTERGER_FORMATTER.format(interger)}.${decimal}`
+    const [integer, decimal] = operand.split(".")
+    if (decimal == null) return numberFormat.format(integer)
+    return `${numberFormat.format(integer)}.${decimal}`
 }
 
 const App = () => {
