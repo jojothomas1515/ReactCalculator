@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to right, blue, green);
+    background: linear-gradient(to right, gray, rgb(50,50,50,));
 
 }
 
@@ -17,9 +17,9 @@ body {
     grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
     margin-top: 2rem;
     justify-content: center;
-    
 
-    
+
+
 
     button{
         cursor: pointer;
